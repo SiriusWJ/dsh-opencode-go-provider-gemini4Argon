@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "OpenCode Go 模型",
+    "description": "通过 Google Generative AI 原生协议，把 OpenCode Go 的 Gemini 4 Argon 等模型接入 DeepSeek Harness。"
+  }
+}

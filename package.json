@@ -1,0 +1,57 @@
+{
+  "name": "dsh-opencode-go",
+  "version": "0.1.1",
+  "description": "OpenCode Go provider for DeepSeek Harness: adds Gemini 4 Argon and other Go models over the native Google Generative AI protocol, with OpenCode session-header routing.",
+  "type": "module",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "author": "SiriusWJ",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "opencode-go",
+    "gemini-4-argon",
+    "google-generative-ai",
+    "provider",
+    "llm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiriusWJ/dsh-opencode-go.git"
+  },
+  "homepage": "https://github.com/SiriusWJ/dsh-opencode-go#readme",
+  "bugs": {
+    "url": "https://github.com/SiriusWJ/dsh-opencode-go/issues"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon.svg": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@deepseek-ai/dsh-attachment": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-brand": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-credentials": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-launch-environment": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-llm": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-timeout": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-util-values": "0.2.1-rc.2",
+    "@deepseek-ai/schemastery": "3.18.5",
+    "@earendil-works/pi-ai": "1.4.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

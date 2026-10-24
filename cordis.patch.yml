@@ -1,0 +1,35 @@
+# dsh-opencode-go bundle patch
+#
+# Inserts one host plugin that registers the `opencode-go-argon` provider route
+# on the Harness LLM seam. It coexists with the shipped `llm-pi-ai` adapter:
+# routes and settings namespaces differ, so the existing OpenCode Zen / Ollama
+# providers are untouched. The route name is deliberately distinct from the
+# `opencode-go` entry the shipped adapter already publishes in its catalog
+# directory, which would otherwise be a duplicate declaration.
+#
+# Gemini 4 Argon is served by OpenCode Go over the native Google Generative AI
+# protocol (v1beta generateContent / streamGenerateContent), which the shipped
+# adapter does not expose. This plugin adds that protocol and wraps it with the
+# `x-opencode-session` header OpenCode Go requires for routing.
+- insert:
+    - id: opencode-go
+      name: dsh-opencode-go
+      config:
+        providers:
+          opencode-go-argon:
+            displayName: OpenCode Go · Gemini 4 Argon
+            apiKeyEnv: OPENCODE_API_KEY
+            api: google-generative-ai
+            baseURL: https://opencode.ai/inference/go/v1
+            models:
+              - id: gemini-4-argon
+                name: Gemini 4 Argon
+                contextWindow: 1048576
+                maxTokens: 65536
+                input:
+                  - text
+                  - image
+                reasoningEfforts:
+                  low: low
+                  medium: medium
+                  high: high

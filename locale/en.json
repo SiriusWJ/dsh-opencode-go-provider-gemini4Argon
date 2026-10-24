@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "OpenCode Go",
+    "description": "Adds OpenCode Go models, including Gemini 4 Argon, to DeepSeek Harness through the native Google Generative AI protocol."
+  }
+}
