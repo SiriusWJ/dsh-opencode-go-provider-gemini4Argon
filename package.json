@@ -1,7 +1,7 @@
 {
-  "name": "dsh-opencode-go",
-  "version": "0.1.1",
-  "description": "OpenCode Go provider for DeepSeek Harness: adds Gemini 4 Argon and other Go models over the native Google Generative AI protocol, with OpenCode session-header routing.",
+  "name": "dsh-opencode-go-provider-gemini4argon",
+  "version": "0.2.0",
+  "description": "Adds exactly one model to DeepSeek Harness: OpenCode Go's Gemini 4 Argon, served over the native Google Generative AI protocol. The plugin idles itself when the installed Harness already offers that model.",
   "type": "module",
   "main": "lib/index.js",
   "license": "MIT",
@@ -17,11 +17,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SiriusWJ/dsh-opencode-go.git"
+    "url": "git+https://github.com/SiriusWJ/dsh-opencode-go-provider-gemini4Argon.git"
   },
-  "homepage": "https://github.com/SiriusWJ/dsh-opencode-go#readme",
+  "homepage": "https://github.com/SiriusWJ/dsh-opencode-go-provider-gemini4Argon#readme",
   "bugs": {
-    "url": "https://github.com/SiriusWJ/dsh-opencode-go/issues"
+    "url": "https://github.com/SiriusWJ/dsh-opencode-go-provider-gemini4Argon/issues"
   },
   "exports": {
     ".": "./lib/index.js",

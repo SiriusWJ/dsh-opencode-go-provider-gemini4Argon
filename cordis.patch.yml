@@ -1,8 +1,9 @@
-# dsh-opencode-go bundle patch
+# dsh-opencode-go-provider-gemini4Argon bundle patch
 #
 # Inserts one host plugin that registers the `opencode-go-argon` provider route
-# on the Harness LLM seam. It coexists with the shipped `llm-pi-ai` adapter:
-# routes and settings namespaces differ, so the existing OpenCode Zen / Ollama
+# on the Harness LLM seam, serving exactly one model: gemini-4-argon. It
+# coexists with the shipped `llm-pi-ai` adapter: routes, settings namespaces and
+# credential record scopes differ, so the existing OpenCode Zen / Ollama
 # providers are untouched. The route name is deliberately distinct from the
 # `opencode-go` entry the shipped adapter already publishes in its catalog
 # directory, which would otherwise be a duplicate declaration.
@@ -11,9 +12,14 @@
 # protocol (v1beta generateContent / streamGenerateContent), which the shipped
 # adapter does not expose. This plugin adds that protocol and wraps it with the
 # `x-opencode-session` header OpenCode Go requires for routing.
+#
+# Self-disabling check: on mount the plugin asks the LLM seam whether any other
+# registered route already lists gemini-4-argon. When the installed Harness
+# gains native support for the model, the plugin logs one line and withdraws
+# its route and settings directory instead of shadowing the native one.
 - insert:
-    - id: opencode-go
-      name: dsh-opencode-go
+    - id: opencode-go-gemini4-argon
+      name: dsh-opencode-go-provider-gemini4argon
       config:
         providers:
           opencode-go-argon:
